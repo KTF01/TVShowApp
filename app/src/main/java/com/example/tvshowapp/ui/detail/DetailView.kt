@@ -1,7 +1,6 @@
-package com.example.tvshowapp.ui
+package com.example.tvshowapp.ui.detail
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.activity.ComponentActivity
 
 class DetailView: ComponentActivity() {

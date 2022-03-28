@@ -1,10 +1,9 @@
-package com.example.tvshowapp.ui
+package com.example.tvshowapp.ui.search
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.activity.ComponentActivity
 
-class FavouritesView: ComponentActivity(){
+class SearchView:ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
