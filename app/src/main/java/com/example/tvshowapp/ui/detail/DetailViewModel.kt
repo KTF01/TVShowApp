@@ -1,4 +1,7 @@
 package com.example.tvshowapp.ui.detail
 
-class DetailViewModel {
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+
+class DetailViewModel(application:Application):AndroidViewModel(application) {
 }
