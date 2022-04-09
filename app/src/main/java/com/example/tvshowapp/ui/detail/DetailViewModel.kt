@@ -1,4 +1,13 @@
 package com.example.tvshowapp.ui.detail
 
-class DetailViewModel {
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.example.tvshowapp.model.TVShow
+
+class DetailViewModel(application:Application):AndroidViewModel(application) {
+
+    private val image:LiveData<TVShow> = MutableLiveData();
+
 }
