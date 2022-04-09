@@ -9,4 +9,7 @@ class TVShowRepository(private val tvShowDAO: TVShowDAO) {
     fun getFavourites() : LiveData<List<TVShow>> {
         return tvShowDAO.getFavourites()
     }
+
+    fun getSearchResult(keyword:String){
+    }
 }
