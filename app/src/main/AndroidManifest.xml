@@ -8,9 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TVShowApp">
+        android:theme="@style/Theme.TVShowApp"
+        android:name=".TVApp">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.favourites.FavouritesView"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.TVShowApp">
