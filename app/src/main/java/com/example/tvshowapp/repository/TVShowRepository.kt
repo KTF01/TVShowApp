@@ -10,6 +10,4 @@ class TVShowRepository(private val tvShowDAO: TVShowDAO) {
         return tvShowDAO.getFavourites()
     }
 
-    fun getSearchResult(keyword:String){
-    }
 }
