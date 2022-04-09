@@ -8,6 +8,6 @@ import com.example.tvshowapp.model.TVShow
 
 class DetailViewModel(application:Application):AndroidViewModel(application) {
 
-    private val image:LiveData<TVShow> = MutableLiveData();
+    private val tvShow:LiveData<TVShow> = MutableLiveData();
 
 }
