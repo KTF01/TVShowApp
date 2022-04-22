@@ -10,6 +10,12 @@ data class TVShow(
     val language:String,
     val status:String,
     val runtime:Int,
-    val premiered: String
+    val premiered: String,
+    val image: String
     ) {
 }
+
+data class Genre(
+    val tVShowId:Int,
+    val name:String
+){}

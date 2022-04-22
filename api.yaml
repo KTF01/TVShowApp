@@ -1,57 +1,63 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
-  description: "This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters."
-  version: "1.0.0"
-  title: "TV show app api"
-
-host: "www.tvmaze.com"
-basePath: "/api"
-
+  version: 1.0.0
+  title: TV show app api
+host: www.tvmaze.com
+basePath: /search
 schemes:
-- "http"
+  - http
+  - https
 paths:
-  /favourites:
-    post:
+  /shows:
+    get:
       tags:
-      - "TV shows"
-      summary: "Get TV shows by keyword"
-      operationId: "Search shows"
+        - TV shows
+      summary: Get TV shows by keyword
+      operationId: Search shows
       parameters:
-      - in: "body"
-        name: "body"
-        description: "Pet object that needs to be added to the store"
-        required: true
-        schema:
-          $ref: "#/definitions/TVShow"
+        - in: query
+          name: q
+          description: Search term
+          required: true
+          type: string
       responses:
-        "405":
-          description: "Invalid input"
+        '200':
+          description: Request was succesfull
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TVShow'
+        '404':
+          description: Not found
+        '405':
+          description: Invalid input
 definitions:
   TVShow:
-    type: "object"
+    type: object
     properties:
       id:
-        type: "integer"
-        format: "int64"
-      petId:
-        type: "integer"
-        format: "int64"
-      quantity:
-        type: "integer"
-        format: "int32"
-      shipDate:
-        type: "string"
-        format: "date-time"
-      status:
-        type: "string"
-        description: "Order Status"
-        enum:
-        - "placed"
-        - "approved"
-        - "delivered"
-      complete:
-        type: "boolean"
-        default: false
+        type: integer
+        format: int32
+      name:
+        type: string
+      type:
+        type: string
+      language:
+        type: string
+      genres:
+        type: array
+        items:
+          type: string
+      premiered:
+        type: string
+      runtime:
+        type: integer
+      image:
+        type: object
+        properties:
+          medium:
+            type: string
+          original:
+            type: string
     xml:
-      name: "Order"
-  
+      name: Order
