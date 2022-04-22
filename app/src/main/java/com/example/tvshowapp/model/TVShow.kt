@@ -14,8 +14,3 @@ data class TVShow(
     val image: String
     ) {
 }
-
-data class Genre(
-    val tVShowId:Int,
-    val name:String
-){}
