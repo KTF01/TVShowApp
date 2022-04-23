@@ -1,6 +1,10 @@
 package com.example.tvshowapp.network
 
-class TvMazeDataSource  constructor(
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class TvMazeDataSource @Inject constructor(
     private val tvMazeApi:TVMazeAPI
 ) {
     suspend fun getMoneyRates(): List<TvShowResult> {
