@@ -1,24 +1,23 @@
 package com.example.tvshowapp.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
+import com.example.tvshowapp.model.ShowWithGenres
 import com.example.tvshowapp.model.TVShow
 
 @Dao
 interface TVShowDAO {
 
+    @Transaction
     @Query("SELECT * FROM tvShow")
-    fun getFavourites(): LiveData<List<TVShow>>
+    fun getFavourites(): LiveData<List<ShowWithGenres>>
 
     @Query("SELECT * FROM tvShow WHERE id=:id ")
-    fun loadSingle(id: Int): LiveData<TVShow>
+    fun loadSingle(id: Int): LiveData<ShowWithGenres>
 
     @Insert
-    suspend fun insertCity(tvShow: TVShow)
+    fun insertShow(tvShow: TVShow)
 
     @Delete
-    suspend fun deleteFromFavourites(tvShow: TVShow)
+    fun deleteShow(tvShow: TVShow)
 }
