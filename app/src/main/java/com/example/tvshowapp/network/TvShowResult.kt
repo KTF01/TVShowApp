@@ -3,8 +3,6 @@ package com.example.tvshowapp.network
 import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.JsonClass
 
-//@JsonClass(generateAdapter = true)
-
 class TvShowResult(
     @SerializedName("id")
     val id:Integer,
@@ -22,7 +20,6 @@ class TvShowResult(
     val image:Image
 ) {
 }
-//@JsonClass(generateAdapter = true)
 class Image(
     @SerializedName("medium")
     val medium:String,
