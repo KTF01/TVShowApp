@@ -1,13 +1,11 @@
 package com.example.tvshowapp.ui.favourites
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -26,41 +24,22 @@ import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.rememberAsyncImagePainter
 import com.example.tvshowapp.R
-import com.example.tvshowapp.model.TVShow
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class FavouritesView: ComponentActivity(){
-
-    val textPaintStroke = Paint().asFrameworkPaint().apply {
-        isAntiAlias = true
-        style = android.graphics.Paint.Style.STROKE
-        textSize = 64f
-        color = android.graphics.Color.BLACK
-        strokeWidth = 6f
-        strokeMiter= 10f
-        strokeJoin = android.graphics.Paint.Join.ROUND
-    }
-
-    val textPaint = Paint().asFrameworkPaint().apply {
-        isAntiAlias = true
-        style = android.graphics.Paint.Style.FILL
-        textSize = 64f
-        color = android.graphics.Color.WHITE
-    }
 
     private val viewModel: FavouritesViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+
             Column(
                 modifier = Modifier.fillMaxWidth(1f),
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -98,7 +77,10 @@ class FavouritesView: ComponentActivity(){
 
     @Composable
     fun ListItem(show:String){
-        Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth(0.7f)){
+        val toast = Toast.makeText(LocalContext.current, show, Toast.LENGTH_SHORT)
+        Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth(0.7f).clickable {
+            toast.show();
+        }){
             Image(painter = painterResource(R.drawable.profile_picture),
                 contentDescription = "Image 1",
                 contentScale = ContentScale.Crop,

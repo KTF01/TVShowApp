@@ -7,6 +7,7 @@ import com.example.tvshowapp.database.AppDatabase
 import com.example.tvshowapp.model.ShowWithGenres
 import com.example.tvshowapp.repository.TVShowRepository
 
+
 class FavouritesViewModel(application:Application): AndroidViewModel(application) {
 
     private val repository : TVShowRepository
