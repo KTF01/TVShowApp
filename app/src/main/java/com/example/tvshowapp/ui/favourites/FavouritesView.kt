@@ -39,7 +39,6 @@ fun FavouritesView(navController: NavController,viewModel:FavouritesViewModel = 
         Button(
             modifier = Modifier.fillMaxWidth(0.7f),
             onClick = {
-                //viewModel.loadShows()
                 navController.navigate("Search")
             }) {
             Text(text = "Add")
@@ -64,9 +63,7 @@ fun FavouritesView(navController: NavController,viewModel:FavouritesViewModel = 
 
     @Composable
     fun ListItem(show:TvShowType, navController: NavController){
-        val toast = Toast.makeText(LocalContext.current, show.name, Toast.LENGTH_SHORT)
         Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth(0.7f).clickable {
-            toast.show();
             val gson = Gson()
             navController.navigate("Detail/show={show}".replace("{show}", gson.toJson(show).replace("/","{slash}")))
         }){

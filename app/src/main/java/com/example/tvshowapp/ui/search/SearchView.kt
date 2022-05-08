@@ -40,6 +40,7 @@ fun SearchView(navController: NavController,searchViewModel: SearchViewModel = v
     Column(modifier = Modifier.fillMaxWidth(1f),
         horizontalAlignment = Alignment.CenterHorizontally) {
         var text by remember { mutableStateOf(TextFieldValue("")) }
+        Spacer(modifier = Modifier.height(10.dp))
         TextField(value = text,
             onValueChange = {newText->
                 text = newText

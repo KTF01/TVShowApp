@@ -6,13 +6,8 @@ import com.example.tvshowapp.model.TVShow
 
 @Dao
 interface TVShowDAO {
-
-    @Transaction
     @Query("SELECT * FROM tvShow")
     suspend fun getFavourites(): List<TVShow>
-
-    @Query("SELECT * FROM tvShow WHERE id=:id ")
-    fun loadSingle(id: Int): LiveData<TVShow>
 
     @Insert
     suspend fun insertShow(tvShow: TVShow)

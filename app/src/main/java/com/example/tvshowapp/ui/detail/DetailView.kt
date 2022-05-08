@@ -67,7 +67,7 @@ fun DetailView(show:TvShowType, navController: NavController,viewModel: DetailVi
                 navController.navigate("Favourites")
 
             }, modifier= Modifier.fillMaxWidth(9.5f)) {
-                Text(text = "Delete from favourites!")
+                Text(text = "Delete from favourites")
             }
         }
 
