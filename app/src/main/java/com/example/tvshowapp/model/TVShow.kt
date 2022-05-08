@@ -3,7 +3,6 @@ package com.example.tvshowapp.model
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.Relation
 
 @Entity(tableName = "tvShow")
 data class TVShow(
@@ -12,25 +11,12 @@ data class TVShow(
     val type:String,
     val language:String,
     val premiered: String,
+    val summary:String,
+    val genres:List<String>,
     @Embedded
-    val image: Image,
-
+    val image: Image?,
     ) {
 }
 
-@Entity(tableName = "genre")
-data class Genre(
-    @PrimaryKey val genreId:Int,
-    val genre:String,
-    val showId:Int
-)
 
-data class ShowWithGenres(
-    @Embedded val show:TVShow,
-    @Relation(
-        parentColumn = "id",
-        entityColumn = "showId"
-    )
-    val genres:List<Genre>
-)
 

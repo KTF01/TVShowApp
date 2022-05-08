@@ -1,11 +1,11 @@
 package com.example.tvshowapp.network
 
+import com.example.tvshowapp.model.Image
 import com.google.gson.annotations.SerializedName
-import com.squareup.moshi.JsonClass
 
-class TvShowResult(
+class TvShowType(
     @SerializedName("id")
-    val id:Integer,
+    val id:Int,
     @SerializedName("name")
     val name:String,
     @SerializedName("type")
@@ -17,11 +17,21 @@ class TvShowResult(
     @SerializedName("premiered")
     val premiered:String,
     @SerializedName("image")
-    val image:Image
+    val image: Image?,
+    @SerializedName("summary")
+    val summary:String
 ) {
 }
 class Image(
     @SerializedName("medium")
     val medium:String,
     @SerializedName("original")
-    val original:String){}
+    val original:String
+    ){}
+
+class TVShowSearchResponse(
+    @SerializedName("score")
+    val score: Float,
+    @SerializedName("show")
+    val show: TvShowType
+){}
